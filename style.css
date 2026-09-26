@@ -1,1 +1,324 @@
+:root {
+  --bg:#05080d;
+  --panel:#0b111a;
+  --line:#18304a;
+  --blue:#12a8ff;
+  --blue2:#006eff;
+  --text:#edf7ff;
+  --muted:#7e91a8;
+  --green:#20d47a;
+  --red:#ff4f67;
+}
 
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  background:
+    radial-gradient(
+      circle at top right,
+      #063052,
+      var(--bg) 35%
+    );
+  color:var(--text);
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+.hidden {
+  display:none!important;
+}
+
+button {
+  border:0;
+  cursor:pointer;
+}
+
+.login {
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+
+.login-box {
+  width:min(400px,100%);
+  padding:35px;
+  background:#091019;
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow:0 0 70px #008cff22;
+}
+
+.logo {
+  font-size:45px;
+  font-weight:900;
+  letter-spacing:5px;
+  text-align:center;
+}
+
+.logo span {
+  color:var(--blue);
+}
+
+.login-box p {
+  text-align:center;
+  color:var(--muted);
+}
+
+.login-box input,
+.panel input,
+.panel textarea,
+.panel select {
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  background:#05090e;
+  border:1px solid var(--line);
+  color:white;
+  border-radius:11px;
+}
+
+.login-box button,
+.panel button {
+  background:linear-gradient(
+    135deg,
+    var(--blue2),
+    var(--blue)
+  );
+  color:white;
+  padding:12px 18px;
+  border-radius:11px;
+  font-weight:bold;
+}
+
+.login-box button {
+  width:100%;
+  margin-top:10px;
+}
+
+#loginError {
+  display:block;
+  color:var(--red);
+  margin-top:10px;
+}
+
+.app {
+  min-height:100vh;
+}
+
+aside {
+  position:fixed;
+  right:0;
+  top:0;
+  bottom:0;
+  width:240px;
+  background:#070c13;
+  border-left:1px solid var(--line);
+  padding:20px;
+}
+
+.brand {
+  font-size:28px;
+  font-weight:900;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:15px;
+}
+
+.brand small {
+  display:block;
+  font-size:10px;
+  color:var(--blue);
+  letter-spacing:2px;
+}
+
+aside button {
+  width:100%;
+  text-align:right;
+  padding:12px;
+  margin:2px 0;
+  background:transparent;
+  color:#9cafc3;
+  border-radius:9px;
+}
+
+aside button:hover {
+  background:#0d2338;
+  color:white;
+}
+
+main {
+  margin-right:240px;
+  padding:25px;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+header h1 {
+  margin:0 0 5px;
+}
+
+.online,
+.green {
+  color:var(--green);
+}
+
+.logout {
+  background:#30111a;
+  color:#ff8ca0;
+  padding:10px 15px;
+  border-radius:10px;
+}
+
+.page {
+  display:none;
+}
+
+.page:first-of-type {
+  display:block;
+}
+
+.cards {
+  display:grid;
+  grid-template-columns:
+    repeat(5,1fr);
+  gap:14px;
+}
+
+.card {
+  padding:20px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+}
+
+.card small {
+  color:var(--muted);
+}
+
+.card b {
+  display:block;
+  font-size:27px;
+  margin-top:10px;
+}
+
+.card.danger b {
+  color:var(--red);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:15px;
+  margin-top:15px;
+}
+
+.panel {
+  background:
+    linear-gradient(
+      145deg,
+      #0d151f,
+      #080d14
+    );
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:15px;
+}
+
+.bars {
+  height:200px;
+  display:flex;
+  align-items:end;
+  gap:8px;
+  padding-top:20px;
+}
+
+.bars div {
+  flex:1;
+  min-height:5px;
+  background:linear-gradient(
+    to top,
+    var(--blue2),
+    var(--blue)
+  );
+  border-radius:5px 5px 0 0;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,
+td {
+  padding:13px;
+  text-align:right;
+  border-bottom:1px solid var(--line);
+}
+
+th {
+  color:var(--muted);
+}
+
+textarea {
+  min-height:150px;
+  resize:vertical;
+}
+
+pre {
+  background:#030609;
+  border:1px solid var(--line);
+  padding:15px;
+  border-radius:12px;
+  overflow:auto;
+  color:#bce5ff;
+}
+
+label {
+  display:block;
+  margin:12px 0;
+}
+
+@media(max-width:900px) {
+
+  aside {
+    width:190px;
+  }
+
+  main {
+    margin-right:190px;
+  }
+
+  .cards {
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .grid {
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:650px) {
+
+  aside {
+    display:none;
+  }
+
+  main {
+    margin:0;
+    padding:15px;
+  }
+
+  .cards {
+    grid-template-columns:1fr 1fr;
+  }
+}
