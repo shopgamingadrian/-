@@ -1,13 +1,29 @@
 const VYROX_CONFIG = {
-  // اطلاعات ورود دمو
-  username: "@MrAdOwner",
-  password: "AD_PLAY202020",
 
-  // اطلاعات VYROX
+  // =========================
+  // LOGIN
+  // هر هفته این‌ها را تغییر بده
+  // =========================
+
+  username: "owner",
+  password: "vyrox123",
+
+
+  // =========================
+  // BOT INFO
+  // =========================
+
   botName: "VYROX",
-  ownerName: "Adrian",
-  ownerUsername: "@MrAdOwner",
 
-  // نسخه
+  ownerName: "Adrian",
+
+  ownerUsername: "@owner",
+
+
+  // =========================
+  // VERSION
+  // =========================
+
   version: "1.0.0"
+
 };
