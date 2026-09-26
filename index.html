@@ -1,1 +1,436 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VYROX Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<div id="login" class="login">
+  <div class="login-box">
+    <div class="logo">
+      VYR<span>OX</span>
+    </div>
+
+    <p>ADMIN CONTROL PANEL</p>
+
+    <input id="username"
+           placeholder="Username">
+
+    <input id="password"
+           type="password"
+           placeholder="Password">
+
+    <button onclick="login()">
+      ورود
+    </button>
+
+    <small id="loginError"></small>
+  </div>
+</div>
+
+
+<div id="app" class="app hidden">
+
+<aside>
+
+  <div class="brand">
+    VYROX
+    <small>ADMIN CONTROL</small>
+  </div>
+
+  <button onclick="page('dashboard')">🏠 داشبورد</button>
+  <button onclick="page('users')">👥 کاربران</button>
+  <button onclick="page('groups')">👥 گروه‌ها</button>
+  <button onclick="page('guard')">🛡️ Guard</button>
+  <button onclick="page('ai')">🤖 AI</button>
+  <button onclick="page('games')">🎮 Games</button>
+  <button onclick="page('economy')">💰 Economy</button>
+  <button onclick="page('broadcast')">📢 Broadcast</button>
+  <button onclick="page('analytics')">📊 Analytics</button>
+  <button onclick="page('logs')">📝 Logs</button>
+  <button onclick="page('admins')">👑 Admins</button>
+  <button onclick="page('console')">🖥️ Console</button>
+  <button onclick="page('settings')">⚙️ Settings</button>
+
+</aside>
+
+
+<main>
+
+<header>
+  <div>
+    <h1 id="pageTitle">داشبورد</h1>
+    <span class="online">● SYSTEM ONLINE</span>
+  </div>
+
+  <button onclick="logout()"
+          class="logout">
+    خروج
+  </button>
+</header>
+
+
+<section id="dashboard" class="page">
+
+<div class="cards">
+
+<div class="card">
+<small>کاربران</small>
+<b id="usersCount">0</b>
+</div>
+
+<div class="card">
+<small>گروه‌ها</small>
+<b id="groupsCount">0</b>
+</div>
+
+<div class="card">
+<small>پیام‌ها</small>
+<b>1.28M</b>
+</div>
+
+<div class="card">
+<small>بازی‌ها</small>
+<b>84K</b>
+</div>
+
+<div class="card danger">
+<small>خطاها</small>
+<b id="errorsCount">0</b>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="panel">
+
+<h3>📈 فعالیت سیستم</h3>
+
+<div class="bars">
+<div style="height:40%"></div>
+<div style="height:55%"></div>
+<div style="height:45%"></div>
+<div style="height:70%"></div>
+<div style="height:60%"></div>
+<div style="height:85%"></div>
+<div style="height:72%"></div>
+<div style="height:90%"></div>
+<div style="height:65%"></div>
+<div style="height:95%"></div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>⚡ سرویس‌ها</h3>
+
+<p>Bot <span class="green">ONLINE</span></p>
+<p>Database <span class="green">CONNECTED</span></p>
+<p>AI <span class="green">READY</span></p>
+<p>Guard <span class="green">ACTIVE</span></p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="users" class="page">
+
+<div class="panel">
+
+<h2>👥 کاربران</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Username</th>
+<th>Level</th>
+<th>Coins</th>
+</tr>
+</thead>
+
+<tbody id="usersTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<section id="groups" class="page">
+
+<div class="panel">
+
+<h2>👥 گروه‌ها</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Members</th>
+<th>Guard</th>
+</tr>
+</thead>
+
+<tbody id="groupsTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<section id="guard" class="page">
+
+<div class="panel">
+
+<h2>🛡️ Guard</h2>
+
+<label>Anti Spam
+<input type="checkbox" id="antiSpam">
+</label>
+
+<label>Anti Flood
+<input type="checkbox" id="antiFlood">
+</label>
+
+<label>Anti Link
+<input type="checkbox" id="antiLink">
+</label>
+
+<label>Anti Ads
+<input type="checkbox" id="antiAds">
+</label>
+
+<label>Welcome
+<input type="checkbox" id="welcome">
+</label>
+
+<button onclick="saveGuard()">
+ذخیره تنظیمات
+</button>
+
+</div>
+
+</section>
+
+
+<section id="ai" class="page">
+
+<div class="panel">
+
+<h2>🤖 AI</h2>
+
+<label>
+فعال بودن AI
+
+<select id="aiEnabled">
+<option value="true">فعال</option>
+<option value="false">غیرفعال</option>
+</select>
+
+</label>
+
+<label>
+شخصیت AI
+
+<input id="aiPersonality"
+value="Friendly Gamer">
+</label>
+
+<button onclick="saveAI()">
+ذخیره
+</button>
+
+</div>
+
+</section>
+
+
+<section id="games" class="page">
+
+<div class="panel">
+
+<h2>🎮 Games</h2>
+
+<p>🎲 Dice</p>
+<p>✊ Rock Paper Scissors</p>
+<p>🧠 Trivia</p>
+<p>🧩 Riddles</p>
+<p>🔢 Number Guess</p>
+<p>⚡ Speed Challenge</p>
+
+</div>
+
+</section>
+
+
+<section id="economy" class="page">
+
+<div class="panel">
+
+<h2>💰 Economy</h2>
+
+<label>
+Daily Coins
+<input id="dailyCoins" type="number">
+</label>
+
+<label>
+Activity XP
+<input id="activityXP" type="number">
+</label>
+
+<button onclick="saveEconomy()">
+ذخیره
+</button>
+
+</div>
+
+</section>
+
+
+<section id="broadcast" class="page">
+
+<div class="panel">
+
+<h2>📢 Broadcast</h2>
+
+<textarea
+id="broadcastMessage"
+placeholder="متن اطلاعیه..."
+></textarea>
+
+<button onclick="broadcast()">
+قرار دادن در صف ارسال
+</button>
+
+<p id="broadcastStatus"></p>
+
+</div>
+
+</section>
+
+
+<section id="analytics" class="page">
+
+<div class="panel">
+
+<h2>📊 Analytics</h2>
+
+<div class="bars big">
+<div style="height:30%"></div>
+<div style="height:45%"></div>
+<div style="height:55%"></div>
+<div style="height:70%"></div>
+<div style="height:80%"></div>
+<div style="height:90%"></div>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="logs" class="page">
+
+<div class="panel">
+
+<h2>📝 Logs</h2>
+
+<pre id="logs"></pre>
+
+</div>
+
+</section>
+
+
+<section id="admins" class="page">
+
+<div class="panel">
+
+<h2>👑 Admins</h2>
+
+<p>
+👑 OWNER — owner
+</p>
+
+<p>
+SUPER ADMIN — بعداً از Backend اضافه می‌شود
+</p>
+
+</div>
+
+</section>
+
+
+<section id="console" class="page">
+
+<div class="panel">
+
+<h2>🖥️ Console</h2>
+
+<pre id="consoleOutput">
+VYROX CONSOLE
+SYSTEM ONLINE
+</pre>
+
+<input
+id="command"
+placeholder="status / stats / help">
+
+<button onclick="runCommand()">
+اجرا
+</button>
+
+</div>
+
+</section>
+
+
+<section id="settings" class="page">
+
+<div class="panel">
+
+<h2>⚙️ Settings</h2>
+
+<p>
+Backend:
+<span class="green">ONLINE</span>
+</p>
+
+<p>
+Authentication:
+<span class="green">ACTIVE</span>
+</p>
+
+<p>
+Database:
+<span class="green">JSON</span>
+</p>
+
+</div>
+
+</section>
+
+</main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+  </html>
