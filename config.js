@@ -1,29 +1,8 @@
 const VYROX_CONFIG = {
-
-  // =========================
-  // LOGIN
-  // هر هفته این‌ها را تغییر بده
-  // =========================
-
   username: "owner",
   password: "vyrox123",
-
-
-  // =========================
-  // BOT INFO
-  // =========================
-
   botName: "VYROX",
-
   ownerName: "Adrian",
-
-  ownerUsername: "@owner",
-
-
-  // =========================
-  // VERSION
-  // =========================
-
+  ownerUsername: "@Adrian",
   version: "1.0.0"
-
 };
