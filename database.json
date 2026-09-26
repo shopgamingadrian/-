@@ -1,1 +1,19 @@
-
+{
+  "users": [],
+  "groups": [],
+  "admins": [],
+  "transactions": [],
+  "logs": [],
+  "broadcasts": [],
+  "settings": {
+    "aiEnabled": true,
+    "guardEnabled": true,
+    "antiSpam": true,
+    "antiFlood": true,
+    "antiLink": false,
+    "antiAds": true,
+    "welcome": true,
+    "dailyCoins": 500,
+    "activityXP": 10
+  }
+}
